@@ -94,7 +94,7 @@ def part_2(paper_roll_grid: list[list[int]], debug: bool = False) -> int:
         for r in range(rows):
             for c in range(cols):
                 if paper_roll_grid[r][c] == 1 and count_adjacent(r, c) < 4:
-                    paper_roll_grid[r][c] = 0  # Remove the roll
+                    paper_roll_grid[r][c] = 0
                     paper_roll_grid_print[r][c] = "x"
                     removed_this_round += 1
 

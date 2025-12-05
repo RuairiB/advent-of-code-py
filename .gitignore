@@ -12,3 +12,6 @@ wheels/
 # misc
 .ruff_cache
 .vscode
+
+cookie.json
+*.sqlite
