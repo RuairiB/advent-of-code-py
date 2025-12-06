@@ -18,13 +18,13 @@ def read_input(input_file: Path | str) -> list[int]:
 
 
 def part_1(inputs: list[list[int]]) -> int:
-    max_volatage = 0
+    max_joltage = 0
     for row in inputs:
         # joltage = max 2 digit number from row without reordering digits
         joltage = max(row[i] * 10 + row[j] for i in range(len(row)) for j in range(len(row)) if i < j)
-        max_volatage += joltage
+        max_joltage += joltage
 
-    return max_volatage
+    return max_joltage
 
 
 def calculate_max_joltage_brute_force(row: list[int]) -> int:
