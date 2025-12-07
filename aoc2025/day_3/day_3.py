@@ -45,7 +45,7 @@ def calculate_max_joltage_brute_force(row: list[int]) -> int:
         for i in range(len(row))
         for j in range(len(row))
         for k in range(len(row))
-        for l in range(len(row))
+        for l in range(len(row))  # noqa: E741
         for m in range(len(row))
         for n in range(len(row))
         for o in range(len(row))
