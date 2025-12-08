@@ -6,7 +6,8 @@ DIR_PATTERN="day_"
 SEARCH_PATH="./${DIR_ROOT}"
 
 LAST_DAY=$(find "$SEARCH_PATH" -maxdepth 1 -type d -name "${DIR_PATTERN}*" 2>/dev/null |
-           sed 's/.*day_\([0-9]\+\)$/\1/' |
+           xargs -n 1 basename |
+           sed "s/${DIR_PATTERN}//" |
            sort -n |
            tail -n 1)
 
