@@ -52,7 +52,7 @@ After making the ten shortest connections, there are 11 circuits: one circuit wh
 
 Your list contains many junction boxes; connect together the 1000 pairs of junction boxes which are closest together. Afterward, what do you get if you multiply together the sizes of the three largest circuits?
 
-## Part 2
+## Part 2
 
 The Elves were right; they definitely don't have enough extension cables. You'll need to keep connecting junction boxes together until they're all in one large circuit.
 

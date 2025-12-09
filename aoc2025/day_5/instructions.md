@@ -37,7 +37,7 @@ So, in this example, 3 of the available ingredient IDs are fresh.
 
 Process the database file from the new inventory management system. How many of the available ingredient IDs are fresh?
 
-## Part 2
+## Part 2
 
 The Elves start bringing their spoiled inventory to the trash chute at the back of the kitchen.
 
