@@ -46,14 +46,14 @@ def solution(raw_input: list[str] = EXAMPLE_INPUT) -> int:
         return [(min(a, c), min(b, d), max(a, c), max(b, d)) for (a, b), (c, d) in line]
 
     # precompute valid _lines_
-    valid_tiles = green_lines(itertools.pairwise(corners + [corners[0]]))
+    valid_lines = green_lines(itertools.pairwise(corners + [corners[0]]))
     max_area = 0
 
     for x, y, u, v in green_lines(itertools.combinations(corners, 2)):
         size = (u - x + 1) * (v - y + 1)
 
         if size > max_area:
-            for p, q, r, s in valid_tiles:
+            for p, q, r, s in valid_lines:
                 if x < r and y < s and u > p and v > q:
                     break
 
