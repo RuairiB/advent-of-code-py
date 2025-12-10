@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "asciimatics>=1.15.0",
     "requests-cache>=1.2.1",
+    "scipy>=1.16.3",
 ]
 
 [dependency-groups]

@@ -53,7 +53,7 @@ def solution(
     raw_input: list[str] = EXAMPLE_INPUT,
     n_connections: int = 10,
     n_largest: int = 3,
-) -> int:
+) -> tuple[int, int]:
     points: list[tuple[int, int, int]] = [tuple(map(int, line.split(","))) for line in raw_input]
 
     distances: dict[tuple[int, int], float] = {}

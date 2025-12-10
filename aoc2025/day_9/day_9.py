@@ -37,7 +37,7 @@ def area(a: tuple[int, int], b: tuple[int, int]) -> int:
     return abs(a[0] - b[0] + 1) * abs(a[1] - b[1] + 1)
 
 
-def solution(raw_input: list[str] = EXAMPLE_INPUT) -> int:
+def solution(raw_input: list[str] = EXAMPLE_INPUT) -> None:
     corners = [tuple(map(int, line.split(","))) for line in raw_input]
 
     print(f"Part 1: {max([area(*c) for c in itertools.combinations(corners, 2)])}")
