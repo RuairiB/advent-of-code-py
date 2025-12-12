@@ -95,25 +95,26 @@ def parse_input(raw_input: list[str]) -> tuple[list[list[np.ndarray]], list[tupl
 def solution(raw_input: list[str] = EXAMPLE_INPUT) -> int:
     # only one part today
     shapes, problems = parse_input(raw_input)
-
     shape_sizes = [np.sum(shape_set[0]) for shape_set in shapes]
 
-    total_count = 0
+    possible_count = 0
+    trivial_count = 0
     for width, height, shape_counts in problems:
         area = width * height
         required_size = sum(num_shapes * shape_sizes[shape_id] for shape_id, num_shapes in enumerate(shape_counts))
-
+        # only really need one of these checks for the provided input, but nice to be thorough
+        # definitely won't fit
         if required_size > area:
             continue
-
-        total_count += 1
+        # trivially fits
+        if area >= 9 * sum(shape_counts):
+            trivial_count += 1
+        possible_count += 1
 
     # wait... surely it should be harder than this? Shouldn't I have to actually try to fit the shapes???
+    # a general solution is I think NP-hard? At least reddit thinks so, so I'm not bothering
     # this doesn't work for the example input, but does for the actual input (larger sample size I guess)
-    print(f"Part 1 (size check): {total_count}")
-
-    # TODO: will try to do it "properly" later today if I have time
-    # TODO: might also code golf-ify the size check solution so it feels like a better achievement
+    print(f"Part 1 (size check): {possible_count} possible, {trivial_count} trivial")
 
     print("Part 2: Happy Christmas!")
     print(random.choice([CHRISTMAS_IN_SPACE, CHRISTMAS_TREE, GRINCH]))
