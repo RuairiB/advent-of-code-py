@@ -10,8 +10,24 @@ if [ ! -d "$TARGET_DIR" ]; then
     exit 1
 fi
 
-# happening in markdown files mostly, when hitting space too soon after a "#"
-find "$TARGET_DIR" -type f \( -name "*.md" -o -name "*.py" \) -print0 | while IFS= read -r -d '' file; do
+EXCLUDE_PATHS=(
+    ".git"
+    ".venv"
+)
+
+EXCLUDE_FIND=""
+for path in "${EXCLUDE_PATHS[@]}"; do
+    if [ "$TARGET_DIR" = "." ]; then
+        FIND_ARGS+=("-not" "-path" "./$path*")
+    else
+        FIND_ARGS+=("-not" "-path" "$TARGET_DIR/$path*")
+    fi
+done
+
+echo $EXCLUDE_FIND
+
+# happening in markdown files mostly, when hitting space too soon after a "#"
+find "$TARGET_DIR" "${FIND_ARGS[@]}" -type f \( -name "*.md" -o -name "*.py" \) -print0 | while IFS= read -r -d '' file; do
     if grep -q "$BAD_CHAR" "$file"; then
         # I'd love for macs to have gnu sed by default...
         sed -i.bak "s/$BAD_CHAR/ /g" "$file"
